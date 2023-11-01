@@ -1,0 +1,724 @@
+﻿<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+
+
+  <meta charset="UTF-8">
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <title>HTML</title>
+
+
+ <script src="jquery.js"></script>
+
+
+<style>
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+#q,#result, #trigger{
+ display: none;
+}
+
+#texto{
+  width: 33%;
+  height: 200px;
+  float: left;
+  padding-left: 5px;
+  margin: 5px 0 0 5px;
+  font-size: 18px;
+}
+
+#css-Code{
+  width: 32%;
+  height: 200px;
+  margin-left: 1%;
+  padding-left: 5px;
+  font-size: 18px;
+}
+
+#js-Code{
+  width: 32%;
+  height: 200px;
+  float: right;
+  padding-left: 5px;
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+#q, #q1{
+  float: bottom;
+}
+
+#output{
+  width:99vw;
+  height: 500px;
+  background: white;
+  font-size: auto;
+  border: 1px solid white;
+  outline: none;
+  margin-left: .5vw;
+}
+
+h1{
+ word-spacing: 280px;
+ margin-left: 20px;
+}
+
+</style>
+
+
+</head>
+
+
+
+
+<body>
+  
+
+
+
+  <input type="text" id="q">
+
+ <input type="text" id="q1" onkeyup="pt();"><br>
+
+  <h1>Html Css Javacript</h1>
+<textarea type="text" id="texto" onkeyup="handleKeyUp(event); run();" autofocus></textarea>
+  <textarea type="text"
+ id="css-Code" onkeyup="run();">*{&#010;margin:0;&#010;padding:0;&#010;box-sizing:&#010;border-box;&#010;user-select:none;&#010;}</textarea>
+
+  <textarea type="text"
+ id="js-Code" onkeyup="run();"></textarea>
+
+
+  <button id="trigger" onclick="ok();">Move cursor to beginning</button>
+
+
+  <span id="result"></span>
+
+
+  
+ <iframe id="output"> </iframe>
+<script>
+
+
+ function run() {
+   let htmlCode = document.getElementById("texto").value;
+   let jscode = document.getElementById("js-Code").value;
+   let csscode = document.getElementById("css-Code").value;
+   let output = document.getElementById("output");
+   output.contentDocument.body.innerHTML = htmlCode + "<style>" + csscode + "<style>";
+   output.contentWindow.eval(jscode);
+}	
+
+function pt(){
+
+
+
+ var q1 = document.getElementById("q1").value;
+
+
+ const input = document.getElementById('texto');
+
+if(q1=="p"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<p></p>');
+ var ca = parseInt(q) + 3;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="a"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<a href=""></a>');
+ var ca = parseInt(q) + 9;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="bo"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<b></b>');
+ var ca = parseInt(q) + 3;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="big"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<big></big>');
+ var ca = parseInt(q) + 3;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="br"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<br>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="center"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<center></center>');
+ var ca = parseInt(q) + 8;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="dl"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<dl></dl>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="dt"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<dt></dt>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="dd"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<dd></dd>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="strong"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<strong></strong>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="embed"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<embed src=""></embed>');
+ var ca = parseInt(q) + 12;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="form"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<form action="" method="post"></form>');
+ var ca = parseInt(q) + 30;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="h1"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<h1></h1>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="h2"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<h2></h2>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="h3"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<h3></h3>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="h4"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<h4></h4>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="h5"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<h5></h5>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="h6"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<h6></h6>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="hr"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<hr />');
+ var ca = parseInt(q) + 6;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="it"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<i></i>');
+ var ca = parseInt(q) + 3;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="img"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<img src="" id=""/>');
+ var ca = parseInt(q) + 10;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="div"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<div id=""></div>');
+ var ca = parseInt(q) + 9;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="in"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<input type="text" id=""/>');
+ var ca = parseInt(q) + 23;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="op"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<option></option>');
+ var ca = parseInt(q) + 8;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="sm"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<small></small>');
+ var ca = parseInt(q) + 7;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="stri"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<strike></strike>');
+ var ca = parseInt(q) + 8;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="tab"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<table></table>');
+ var ca = parseInt(q) + 7;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="th"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<th></th>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="td"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<td></td>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="span"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<span></span>');
+ var ca = parseInt(q) + 6;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="tr"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<tr></tr>');
+ var ca = parseInt(q) + 4;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="iframe"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<iframe></iframe>');
+ var ca = parseInt(q) + 8;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="lable"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<lable for=""></lable>');
+ var ca = parseInt(q) + 12;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="sub"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<sub></sub>');
+ var ca = parseInt(q) + 5;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="sup"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<sup></sup>');
+ var ca = parseInt(q) + 5;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="textarea"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<textarea></textarea>');
+ var ca = parseInt(q) + 10;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="#"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+  var ca = parseInt(q) + 1;
+ document.getElementById('q1').value = "";
+
+ let lbr= `#{$width: ;$height: auto;$$$}`;
+   lbr = lbr.split("$");
+
+for(let i= 0; i < lbr.length; i++){
+    lbr[i] = lbr[i]+ "\n";
+}
+lbr = lbr.join("");
+
+ addToTextArea(lbr);
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="html"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ var ca = parseInt(q) + 166;
+ document.getElementById('q1').value = "";
+
+let lbr =`<!doctype html>$<head>$<meta charset="UTF-8">$<meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1">$<title>Web page</title></head>$<body>$$</body>$</html>`
+   lbr = lbr.split("$");
+
+for(let i= 0; i < lbr.length; i++){
+    lbr[i] = lbr[i]+ "\n";
+}
+lbr = lbr.join("");
+ addToTextArea(lbr);
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="."){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ var ca = parseInt(q) + 1;
+ document.getElementById('q1').value = "";
+
+ let lbr= `.{$width: ;$height: auto;$$$}`;
+   lbr = lbr.split("$");
+
+for(let i= 0; i < lbr.length; i++){
+    lbr[i] = lbr[i]+ "\n";
+}
+lbr = lbr.join("");
+ addToTextArea(lbr);
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="button"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('<button></button>');
+ var ca = parseInt(q) + 8;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="bl"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ var ca = parseInt(q) + 0;
+ document.getElementById('q1').value = "";
+
+ let lbr= `{$width: ;$height: auto;$$$}`;
+   lbr = lbr.split("$");
+
+for(let i= 0; i < lbr.length; i++){
+    lbr[i] = lbr[i]+ "\n";
+}
+lbr = lbr.join("");
+ addToTextArea(lbr);
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="pal"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('padding-left: ;');
+ var ca = parseInt(q) + 14;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="pat"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('padding-top: ;');
+ var ca = parseInt(q) + 13;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="par"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('padding-right: ;');
+ var ca = parseInt(q) + 15;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="pab"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('padding-bottom: ;');
+ var ca = parseInt(q) + 16;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="mal"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('margin-left: ;');
+ var ca = parseInt(q) + 13;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="mat"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('margin-top: ;');
+ var ca = parseInt(q) + 12;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="mar"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('margin-right: ;');
+ var ca = parseInt(q) + 14;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="mab"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('margin-bottom: ;');
+ var ca = parseInt(q) + 15;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+if(q1=="pos"){
+ document.getElementById("trigger").click();
+ const q = document.getElementById('q').value;
+ addToTextArea('position: ; top: ; left: ;');
+ var ca = parseInt(q) + 11;
+ document.getElementById('q1').value = "";
+ input.setSelectionRange(ca, ca);
+ input.focus();}
+ }
+
+
+
+
+var handleKeyUp = function(e) {
+
+
+  if (e.key === 'Alt' && 'Control') {
+
+
+    const q1 = document.getElementById('q1');
+
+
+  q1.focus();
+
+  }
+}
+
+
+
+
+const addToTextArea = function (text_to_add) {
+
+
+  let textarea = document.getElementById("texto");
+
+
+  let start_position = textarea.selectionStart;
+
+  
+  let end_position = textarea.selectionEnd;
+
+
+
+  
+textarea.value = `${textarea.value.substring( 0, start_position  )}${text_to_add}${textarea.value.substring(end_position, textarea.value.length
+  )}`;
+}
+
+
+
+
+
+function getInputSelection(el) {
+
+  var start = 0,
+end = 0,
+normalizedValue, range,
+textInputRange, len, endRange;
+
+  if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+start = el.selectionStart;
+end = el.selectionEnd;
+  } else {
+range = document.selection.createRange();
+
+if (range && range.parentElement() == el) {
+  len = el.value.length;
+  normalizedValue = el.value.replace(/\r\n/g, "\n");
+
+
+
+ textInputRange = el.createTextRange();
+  
+textInputRange.moveToBookmark(range.getBookmark());
+
+ 
+
+endRange = el.createTextRange();
+
+  endRange.collapse(false);
+
+
+
+  if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+
+  start = end = len;
+  
+} else {
+
+start = -textInputRange.moveStart("character", -len);
+start += normalizedValue.slice(0, start).split("\n").length - 1;
+
+
+
+if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+  end = len;
+} else {
+  end = -textInputRange.moveEnd("character", -len);
+  end += normalizedValue.slice(0, end).split("\n").length - 1;
+}
+  
+}
+}
+  }
+
+  return {
+start: start,
+end: end
+  
+};
+}
+
+
+
+
+ function ok(){
+
+  
+ var input = document.getElementById("texto");
+
+
+  const q = document.getElementById('q');
+
+
+ var inputContent = input.value.length;
+
+
+   input.focus();
+
+ 
+ var result = getInputSelection(input);
+
+
+ var resultSpan = document.getElementById("result");
+
+
+
+   if (result.start == result.end) {
+
+
+   q.value=result.start;
+
+  resultSpan.innerHTML = "No text selected. Position of cursor is " + result.start + " of " + inputContent;
+
+  
+} else {
+
+  
+  resultSpan.innerHTML = "You've selected text (" + result.start + " to " + result.end + ") from a total length of " + inputContent;
+
+
+  }
+
+
+}
+
+ 
+ 
+</script>
+</body>
+
+
+</html>
